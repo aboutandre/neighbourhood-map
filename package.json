@@ -1,0 +1,18 @@
+{
+  "name": "FEND-Neighborhood-Map",
+  "description": "Udacity Map Project",
+  "private": true,
+  "license": "MIT",
+
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-compass": "^1.1.1",
+    "grunt-contrib-concat": "1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-notify": "^0.4.5",
+    "grunt-string-replace": "1.2.1"
+  }
+}

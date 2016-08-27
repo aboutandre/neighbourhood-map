@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hamburg, Germany - Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="./dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="./dist/css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato|PT+Serif" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?&key=AIzaSyCCWLpZV_6pKVHl6rAnGyqz1Q66zbz6dcw&v=3"></script>
+    <script src="js/main.js"></script>
+    <script src="js/menu.js"></script>
+    <!--Adds a favicon with the flag of Hamburg to the page =]-->
+    <link rel="shortcut icon" href="./img/hh.ico" />
+</head>
+
+<body>
+    <div id="map" class="map__body"></div>
+    <div class="main-menu">
+        <div id="menuPOI" class="main-menu__body">
+            <!--<div class="container">-->
+            <div class="main-menu__items">
+                <div class="row">
+
+                    <div class="col-xs-4 settings-button">
+                        <input type="checkbox" id="fitToResult" class="with-font rezoom" data-bind="checked: fitToResult">
+                        <label class="input__label" for="fitToResult"><br> Re-zoom on filter </label>
+                    </div>
+
+                    <div class="col-xs-4 settings-button">
+                        <input type="checkbox" id="fitWindow" class="with-font map-to-window" data-bind="checked: fitWindow">
+                        <label class="input__label" for="fitWindow"><br> Fit map to window </label>
+                    </div>
+
+                    <div class="col-xs-4 settings-button">
+                        <input type="checkbox" id="onlyPOIName" class="with-font only-poi" data-bind="checked: onlyPOIName">
+                        <label class="input__label" for="onlyPOIName"><br> Only POI name </label>
+                    </div>
+                </div>
+                <!--</div>-->
+
+                <!--this is the filter/search box-->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <input id="search-field" class="search__input" type="search" placeholder="Filter results...  Try fun, food, or shopping." data-bind="value: pointFilter, valueUpdate: 'keyup'" autocomplete="off">
+                    </div>
+                </div>
+
+
+                <!--<div class="container">-->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <ul class="poi__list" data-bind="visible: POIListShow, foreach: points">
+                            <li class="poi__list-item" data-bind="event: {mouseover: $parent.mouseEnter, mouseleave: $parent.mouseBlur}, click:$parent.selectPoint">
+                                <!--<span data-bind="text: name"></span>-->
+                                <!--<span data-bind="text: category"></span>-->
+                                <!--<i data-bind="css: iconList"></i>-->
+
+                                <div class="row">
+
+                                    <div class="col-xs-2 col-sm-1">
+                                        <i data-bind="css: iconList" class="text-xs-center"></i>
+                                    </div>
+                                    <div class="col-xs-7 col-sm-6">
+                                        <span data-bind="text: name"></span>
+                                    </div>
+                                    <div class="hidden-xs-down col-sm-4">
+
+                                        <span class="poi__list-item--category" data-bind="text: category"></span>
+
+                                    </div>
+                                </div>
+
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--</div>-->
+
+            <div class="hidden-sm-up menu-toggle poi__list-item">
+                <a>
+                    <i class="icon-button fa fa-angle-double-up"></i>
+                </a>
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+</body>
+
+</html>

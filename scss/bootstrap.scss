@@ -1,0 +1,22 @@
+/*!
+ * Bootstrap v4.0.0-alpha.3 (http://getbootstrap.com)
+ * Copyright 2011-2016 The Bootstrap Authors
+ * Copyright 2011-2016 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+// Core variables and mixins
+@import 'mixins';
+@import 'variables';
+// Complete version
+@import './../../css/bootstrap-4.0.css';
+// Utility classes
+
+
+
+//Custom Classes
+@import 'navbar-fixed-side';
+@import './fonts/variables';
+@import './fonts/font-awesome';
+@import 'hamburg-map';
+@import 'awesome-bootstrap-checkbox';

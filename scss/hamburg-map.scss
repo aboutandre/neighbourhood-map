@@ -1,0 +1,287 @@
+//Colors variables
+$brand-primary: #3fa9fa;
+$alabaster: #fcfcfc;
+$mine-shaft: #333333;
+$concrete: #dedede;
+$mercury: #e8e8e8;
+$abbey: #515658;
+$input-border: $concrete;
+$input-color: $mine-shaft;
+$input-bg-disabled: #dddddd;
+$base-grid: 16px;
+$default-font: 'Lato', 'Helvetica Neue Light', 'HelveticaNeue-Light', 'Helvetica Neue', Calibri, Helvetica, Arial, sans-serif;
+
+p {
+  margin: 0;
+}
+html,
+body {
+  font-family: $default-font;
+  font-size: 12px;
+  height: 100%;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+.poi__list {
+  background-color: $abbey;
+  color: $mercury;
+  list-style-type: none;
+  //Resets agent ul style
+  padding: 0;
+}
+
+.poi__list-item {
+  border-bottom: 1px solid $concrete;
+  cursor: pointer;
+  margin-bottom: $base-grid;
+  padding-bottom: $base-grid;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.poi__list-item--category {
+  color: $concrete;
+  font-size: 0.8em;
+  font-style: italic;
+  font-weight: 100;
+}
+
+li:hover {
+  color: $brand-primary;
+}
+
+.hoveredListPoint {
+  color: $brand-primary;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+.currentListPoint {
+  color: #008000;
+}
+
+.hoveredCurrentListPoint {
+  color: #008000;
+  font-size: 1.2em;
+}
+
+.info-window {
+  line-height: 1.35;
+  margin: 0;
+  min-width: $base-grid*20;
+  overflow: hidden;
+  padding: 0;
+}
+
+// panorama div style
+#panorama-picture {
+  min-height: $base-grid*15;
+  width: 100%;
+}
+
+.main-menu {
+  height: 100vh;
+  overflow: hidden;
+  //Fixes annoying scrollbar shifting content problem
+  position: relative;
+  width: 100vw;
+  // z-index: 1;
+}
+
+.main-menu__body {
+  background-color: $abbey;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  overflow-y: scroll;
+  padding: 0 30px;
+  // position: absolute;
+  width: calc(100% + 15px);
+}
+
+.map__body {
+  height: calc(100vh - 1.5em);
+  position: absolute;
+  right: 0;
+  top: 1.5em;
+  width: 100vw;
+}
+
+@media only screen and (min-width: 544px) {
+  .main-menu {
+    margin-left: 0;
+    width: 30vw;
+  }
+  .main-menu__body {
+    height: 100%;
+  }
+  .map__body {
+    height: 100vh;
+    top: 0;
+    width: 70vw;
+  }
+  .poi__list {
+    margin-bottom: 0;
+  }
+}
+
+// /*this is the search-filter box */
+.search__input {
+  background-color: $alabaster;
+  border: 1px solid transparent;
+  border-radius: $base-grid/4;
+  box-shadow: 0 0 5px rgba($mine-shaft, 0.5);
+  box-sizing: border-box;
+  font-size: 1em;
+  font-weight: 300;
+  height: $base-grid*3;
+  margin-bottom: $base-grid;
+  outline: none;
+  padding: 0 $base-grid;
+  text-overflow: ellipsis;
+  width: 100%;
+  &:focus {
+    border-color: $brand-primary;
+  }
+}
+.location__info {
+  font-size: 2em;
+  font-weight: 100;
+  margin: $base-grid/2 0;
+}
+.location__attribute,
+.location__attribute-value,
+.location__tips--list-item {
+  padding: 0 $base-grid/4;
+}
+.location__attribute {
+  border-top: 1px solid $concrete;
+  color: $brand-primary;
+  font-size: 1.5em;
+  font-weight: 400;
+  padding-top: $base-grid/4;
+  width: 100%;
+}
+
+.location__attribute-value,
+.location__tips--list-item {
+  color: $abbey;
+  font-size: 1.1em;
+  list-style: none;
+  list-style-type: none;
+  margin: $base-grid/2 0;
+}
+
+.location__tips--list-item {
+  font-family: 'PT Serif', serif;
+  font-style: italic;
+  font-weight: 100;
+}
+
+.location__tips--list {
+  padding: 0;
+}
+
+.menu-toggle {
+  background: $mine-shaft;
+  color: #ffffff;
+  display: inline-block;
+  font-size: 2em;
+  height: 1.5em;
+  margin: auto -30px;
+  text-align: center;
+  width: calc(100% + 60px);
+}
+
+//Categories
+
+.tourist-icon {
+  @extend .fa;
+  @extend .fa-camera-retro;
+}
+
+.cinema-icon {
+  @extend .fa;
+  @extend .fa-film;
+}
+
+.park-icon {
+  @extend .fa;
+  @extend .fa-tree;
+}
+
+.beach-icon {
+  @extend .fa;
+  @extend .fa-sun-o;
+}
+
+.food-icon {
+  @extend .fa;
+  @extend .fa-cutlery;
+}
+
+.sport-icon {
+  @extend .fa;
+  @extend .fa-soccer-ball-o;
+}
+
+//Settings
+.input__label {
+  color: $alabaster;
+}
+input[type=checkbox].with-font {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  &.rezoom {
+    ~ label::before {
+      content: '\f00e';
+    }
+  }
+  &.map-to-window {
+    ~ label::before {
+      content: '\f0b2';
+    }
+  }
+  &.only-poi {
+    ~ label::before {
+      content: '\f041';
+    }
+  }
+}
+input[type=checkbox].with-font ~ label::before {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-size: 2em;
+  letter-spacing: 10px;
+  margin-right: auto;
+  width: 1.4em;
+}
+
+
+input[type=checkbox].with-font ~ label::before {
+  color: $concrete;
+}
+
+input[type=checkbox].with-font:checked ~ label::before {
+  color: $brand-primary;
+}
+
+.settings-button {
+  padding-top: $base-grid/2;
+  text-align: center;
+  label {
+    display: block;
+  }
+}
+
+.gm-style-iw {
+  min-width: 80% !important;
+  position: relative !important;
+}
