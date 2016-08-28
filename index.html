@@ -50,7 +50,21 @@
 
                 <div class="row">
                     <div class="col-xs-12">
-                        <ul id="pointList" class="poi__list" data-bind="visible: listVisible, template: {name: 'pointsTemplate',foreach: shownList}"></ul>
+                        <ul id="pointList" class="poi__list" data-bind="visible: listVisible, foreach: shownList">
+                          <li class="poi__list-item" data-bind="event: {mouseover: $parent.mouseHere, mouseleave: $parent.mouseGone}, click:$parent.selectPoint, css: $parent.getStyle($data)">
+                              <div class="row">
+                                  <div class="col-xs-2 col-sm-1">
+                                      <i data-bind="css: iconList" class="text-xs-center"></i>
+                                  </div>
+                                  <div class="col-xs-7 col-sm-6">
+                                      <span data-bind="text: name"></span>
+                                  </div>
+                                  <div class="hidden-xs-down col-sm-4">
+                                      <span data-bind="text: category" class="poi__list-item--category"></span>
+                                  </div>
+                              </div>
+                          </li>
+                        </ul>
                     </div>
                 </div>
 
@@ -67,94 +81,21 @@
     </div>
 
 
+<script>
+function kissAndTell() {
+  console.log('Kiss And Tell');
+  $.ajax({
+    url: './js/menu.js',
+    dataType: "script",
+    success: success
+  });
+}
 
+</script>
 
     <!--this is a knockout template used for point list items-->
-    <script type="text/html" id="pointsTemplate">
-        <li class="poi__list-item" data-bind="event: {mouseover: $parent.mouseHere, mouseleave: $parent.mouseGone}, click:$parent.selectPoint, css: $parent.getStyle($data)">
-            <div class="row">
-                <div class="col-xs-2 col-sm-1">
-                    <i data-bind="css: iconList" class="text-xs-center"></i>
-                </div>
-                <div class="col-xs-7 col-sm-6">
-                    <span data-bind="text: name"></span>
-                </div>
-                <div class="hidden-xs-down col-sm-4">
-                    <span data-bind="text: category" class="poi__list-item--category"></span>
-                </div>
-            </div>
-        </li>
-    </script>
-
-    <!-- ////////////////////////// -->
-
-    <!-- <div class="main-menu">
-        <div id="menuPOI" class="main-menu__body">
-            <div class="main-menu__items">
-                <div class="row">
-
-                    <div class="col-xs-4 settings-button">
-                        <input type="checkbox" id="fitToResult" class="with-font rezoom" data-bind="checked: fitToResult">
-                        <label class="input__label" for="fitToResult"><br> Re-zoom on filter </label>
-                    </div>
-
-                    <div class="col-xs-4 settings-button">
-                        <input type="checkbox" id="fitWindow" class="with-font map-to-window" data-bind="checked: fitWindow">
-                        <label class="input__label" for="fitWindow"><br> Fit map to window </label>
-                    </div>
-
-                    <div class="col-xs-4 settings-button">
-                        <input type="checkbox" id="onlyPOIName" class="with-font only-poi" data-bind="checked: onlyPOIName">
-                        <label class="input__label" for="onlyPOIName"><br> Only POI name </label>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-xs-12">
-                        <input id="search-field" class="search__input" type="search" placeholder="Filter results...  Try fun, food, or shopping." data-bind="value: pointFilter, valueUpdate: 'keyup'" autocomplete="off">
-                    </div>
-                </div>
 
 
-                <div class="row">
-                    <div class="col-xs-12">
-                        <ul class="poi__list" data-bind="visible: POIListShow, template: {name: 'POIsTemplate',foreach: points}"> </ul>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="hidden-sm-up menu-toggle poi__list-item">
-                <a>
-                    <i class="icon-button fa fa-angle-double-up"></i>
-                </a>
-
-            </div>
-        </div>
-
-        <script type="text/html" id="POIsTemplate">
-            <li class="poi__list-item" data-bind="event: {mouseover: $parent.mouseEnter, mouseleave: $parent.mouseBlur}, click:$parent.selectPoint, css: $parent.getStyle($data)">
-
-                <div class="row">
-
-                    <div class="col-xs-2 col-sm-1">
-                        <i data-bind="css: iconList" class="text-xs-center"></i>
-                    </div>
-                    <div class="col-xs-7 col-sm-6">
-                        <span data-bind="text: name"></span>
-                    </div>
-                    <div class="hidden-xs-down col-sm-4">
-
-                        <span data-bind="text: category" class="poi__list-item--category"></span>
-
-                    </div>
-                </div>
-
-            </li>
-        </script>
-    </div> -->
-
-    <!-- ////////////////////////// -->
 
     <script src="js/jquery-3.1.0.min.js"></script>
     <script src="js/knockout-3.4.0-min.js"></script>

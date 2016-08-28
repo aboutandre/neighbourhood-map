@@ -1,4 +1,3 @@
-$(document).ready(function() {
     if ($(window).width() < 544) {
 
         $('.poi__list-item').click(function() {
@@ -16,13 +15,6 @@ $(document).ready(function() {
 
         });
     }
-});
-//
-// $(document).ready(function() {
-//     if ($(window).width() < 544) {
-//         $('#menuPOI').addClass('menu-xs');
-//     }
-// });
 
 $(document).ready(function() {
     $('.middle').click(function() {
