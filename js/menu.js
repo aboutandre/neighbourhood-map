@@ -1,6 +1,7 @@
+function collapseTheMenu () {
     if ($(window).width() < 544) {
 
-        $('.poi__list-item').click(function() {
+        // $('.poi__list-item').click(function() {
             $("#main-menu__items").slideToggle('fast');
 
             if ($('.icon-button').hasClass('fa-angle-double-down')) {
@@ -13,8 +14,9 @@
                 $('.icon-button').removeClass('fa-angle-double-up').addClass('fa-angle-double-down');
             }
 
-        });
+        // });
     }
+  };
 
 $(document).ready(function() {
     $('.middle').click(function() {

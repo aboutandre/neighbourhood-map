@@ -50,8 +50,8 @@
 
                 <div class="row">
                     <div class="col-xs-12">
-                        <ul id="pointList" class="poi__list" data-bind="visible: listVisible, foreach: shownList">
-                          <li class="poi__list-item" data-bind="event: {mouseover: $parent.mouseHere, mouseleave: $parent.mouseGone}, click:$parent.selectPoint, css: $parent.getStyle($data)">
+                        <ul class="poi__list" data-bind="visible: listVisible, foreach: shownList">
+                          <li onclick="collapseTheMenu();" class="poi__list-item" data-bind="event: {mouseover: $parent.mouseHere, mouseleave: $parent.mouseGone}, click:$parent.selectPoint, css: $parent.getStyle($data)">
                               <div class="row">
                                   <div class="col-xs-2 col-sm-1">
                                       <i data-bind="css: iconList" class="text-xs-center"></i>
@@ -67,11 +67,9 @@
                         </ul>
                     </div>
                 </div>
-
-
             </div>
 
-            <div class="hidden-sm-up menu-toggle poi__list-item">
+            <div class="hidden-sm-up menu-toggle poi__list-item" onclick="collapseTheMenu();">
                 <a>
                     <i class="icon-button fa fa-angle-double-up"></i>
                 </a>
@@ -80,18 +78,6 @@
         </div>
     </div>
 
-
-<script>
-function kissAndTell() {
-  console.log('Kiss And Tell');
-  $.ajax({
-    url: './js/menu.js',
-    dataType: "script",
-    success: success
-  });
-}
-
-</script>
 
     <!--this is a knockout template used for point list items-->
 
