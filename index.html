@@ -41,19 +41,17 @@
                 <!--this is the filter/search box-->
                 <div class="row">
                     <div class="col-xs-12">
-                        <input id="search-field" class="search__input" type="search" placeholder="Filter results...  Try fun, food, or shopping." data-bind="value: pointFilter, valueUpdate: 'keyup'" autocomplete="off">
-                    </div>
+                      <input id="searchbox" class="search__input" type="search" placeholder="Filter list here.  Try fun, food, or shopping." data-bind="value: pointFilter, valueUpdate: 'keyup'" autocomplete="off">
+                              <!--this is the points list-->
+                              <ul id="pointList" class="poi__list" data-bind="visible: listVisible, template: {name: 'pointsTemplate',foreach: shownList}"></ul>
+                      </div>
+                </div>
                 </div>
 
 
                 <!--<div class="container">-->
-                <div class="row">
-                    <div class="col-xs-12">
-                        <ul class="poi__list" data-bind="visible: POIListShow, template: {name: 'POIsTemplate',foreach: points}"> </ul>
 
-                    </div>
-                </div>
-            </div>
+
             <!--</div>-->
 
             <div class="hidden-sm-up menu-toggle poi__list-item">
@@ -63,26 +61,29 @@
 
             </div>
         </div>
+        </div>
 
-        <script type="text/html" id="POIsTemplate">
-            <li class="poi__list-item" data-bind="event: {mouseover: $parent.mouseEnter, mouseleave: $parent.mouseBlur}, click:$parent.selectPoint, css: $parent.getStyle($data)">
-
+        <!--this is a knockout template used for point list items-->
+            <script type="text/html" id="pointsTemplate">
+              <li data-bind="event: {mouseover: $parent.mouseHere, mouseleave: $parent.mouseGone}, click:$parent.selectPoint, css: $parent.getStyle($data)">
                 <div class="row">
 
-                    <div class="col-xs-2 col-sm-1">
-                        <i data-bind="css: iconList" class="text-xs-center"></i>
-                    </div>
-                    <div class="col-xs-7 col-sm-6">
-                        <span data-bind="text: name"></span>
-                    </div>
-                    <div class="hidden-xs-down col-sm-4">
+                  <div class="col-xs-2 col-sm-1">
 
-                        <span data-bind="text: category" class="poi__list-item--category"></span>
+                <i data-bind="css: iconList" class="text-xs-center"></i>
+</div>
+<div class="col-xs-7 col-sm-6">
 
-                    </div>
-                </div>
+                <span data-bind="text: name"></span>
+                <div class="col-xs-7 col-sm-6">
+                  <div class="hidden-xs-down col-sm-4">
 
-            </li>
+                <span data-bind="text: '(' + category + ')'"></span>
+
+              </div>
+              </div>
+              </li>
+            </script>
 
         </script>
 

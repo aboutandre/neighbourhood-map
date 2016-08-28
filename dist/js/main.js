@@ -516,13 +516,13 @@ var koVM = function() {
                                   /*TODO: check speed comparing arrays vs hiding all + unhiding */
                                   for (i = 0; i < pointsLen; i++) {
                                       /* make sure the point is defined before messing with it */
-                                      var mePOI = me.shownPoints()[i];
+                                      var mePOI = me.visiblePOI()[i];
                                       if (mePOI) {mePOI.marker.setVisible(true);}
                                   }
                                   /* assuming the user didn't turn it off, refit map to our new set of
                                    * visible markers
                                    */
-                                  if(me.refitFilterCheck() === true){me.refitMap();}
+                                  if(me.fitToResult() === true){me.refitMap();}
                               };
 
 
