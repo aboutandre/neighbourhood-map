@@ -160,12 +160,12 @@ var koVM = function() {
         } else {
             me.mouseBlur(POI);
         }
-        if (oldPoint !== null && oldPoint !== undefined) {
-            if (oldPoint.hovered() === true) {
-                oldPoint.hovered(false);
-                me.mouseEnter(oldPoint);
+        if (me.currentPoint() !== null && me.currentPoint() !== undefined) {
+            if (me.currentPoint().hovered() === true) {
+                me.currentPoint().hovered(false);
+                me.mouseEnter(me.currentPoint());
             } else {
-                me.mouseBlur(oldPoint);
+                me.mouseBlur(me.currentPoint());
             }
         }
     };
@@ -217,7 +217,7 @@ var koVM = function() {
 
 
     //This goes through the observableArray below and creates all POIs
-    me.POI = function(name, lat, long, category, iconPOI, iconList) {
+    this.POI = function(name, lat, long, category, iconPOI, iconList) {
         //Changes the default Google Maps Icons to use custom icons for the categories
         this.defaultIcon = iconPOI + '.svg';
         this.activeHoverIcon = iconPOI + '-hover-active' + '.svg';
@@ -296,16 +296,19 @@ var koVM = function() {
     me.pointFilter = ko.observable('');
 
     me.visiblePOI = ko.computed(function() {
-        return ko.utils.arrayFilter(me.points(), function(POI) {
-            // Filter list not working like here: http://jsfiddle.net/zf5k9rxq/
-            if (me.onlyPOIName() === true) {
-                console.log('Only POI name');
+        return ko.utils.arrayFilter(me.points(), function(point) {
+            //check either name or name + category depending on user options
+            if (me.onlyPOIName() === true){
                 return (me.pointFilter() === '*' ||
-                    POI.name.toLowerCase().indexOf(me.pointFilter().toLowerCase()) !== -1);
-            } else {
+                    point.name.toLowerCase().indexOf(me.pointFilter().
+                        toLowerCase()) !== -1);
+            }
+            else{
                 return (me.pointFilter() === '*' ||
-                    (POI.name.toLowerCase().indexOf(me.pointFilter().toLowerCase()) !== -1 ||
-                        POI.category.toLowerCase().indexOf(me.pointFilter().toLowerCase()) !== -1));
+                    (point.name.toLowerCase().indexOf(me.pointFilter().
+                        toLowerCase()) !== -1 ||
+                    point.category.toLowerCase().indexOf(me.pointFilter().
+                        toLowerCase()) !== -1));
             }
         });
     }, me);
