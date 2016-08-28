@@ -18,7 +18,7 @@
     <div class="main-menu">
         <div id="menuPOI" class="main-menu__body">
             <!--<div class="container">-->
-            <div class="main-menu__items">
+            <div id="main-menu__items">
                 <div class="row">
 
                     <div class="col-xs-4 settings-button">
@@ -45,17 +45,17 @@
                         <!--this is the points list-->
                     </div>
                 </div>
-            </div>
 
 
-            <div class="row">
-                <div class="col-xs-12">
-                    <ul id="pointList" class="poi__list" data-bind="visible: listVisible, template: {name: 'pointsTemplate',foreach: shownList}"></ul>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <ul id="pointList" class="poi__list" data-bind="visible: listVisible, template: {name: 'pointsTemplate',foreach: shownList}"></ul>
+                    </div>
                 </div>
+
+
             </div>
-
-
-
 
             <div class="hidden-sm-up menu-toggle poi__list-item">
                 <a>
@@ -65,6 +65,7 @@
             </div>
         </div>
     </div>
+
 
 
 

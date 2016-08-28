@@ -83,12 +83,10 @@ li:hover {
 }
 
 .main-menu {
-  height: 100vh;
   overflow: hidden;
   //Fixes annoying scrollbar shifting content problem
   position: relative;
   width: 100vw;
-  // z-index: 1;
 }
 
 .main-menu__body {

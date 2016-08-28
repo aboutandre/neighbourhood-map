@@ -93,7 +93,7 @@ var koVM = function() {
     me.maxListNum =
             ko.observable(Math.max(1,Math.ceil(($(window).height() -150)/30)));
         //is the list visible right now? 1 = on, 0 = false;
-        me.POIListShow = ko.observable(1);
+        me.listVisible = ko.observable(1);
         /* which point is the first one on our list page right now?
          * actual page is calculated from this.  Storing point instead
          * of page so that point can remain consistent when list resizes
@@ -119,7 +119,7 @@ var koVM = function() {
     me.fitToResult = ko.observable(true);
     me.fitWindow = ko.observable(true);
     me.onlyPOIName = ko.observable(false);
-    me.POIListShow = ko.observable(true);
+    me.listVisible = ko.observable(true);
     me.rollupText = ko.observable('collapse list');
     me.rollupIconPath = ko.observable('img/collapseIcon.png');
     // Sets how wide the POI info window can be

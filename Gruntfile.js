@@ -48,7 +48,7 @@ module.exports = function(grunt) {
                         sassDir: '<%= scssFolder %>',
                         cssDir: '<%= target %>/css',
                         outputStyle: 'compressed',
-                        sourcemap: true
+                        sourcemap: false
 
                     }
                 }
