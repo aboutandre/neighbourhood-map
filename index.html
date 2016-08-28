@@ -62,7 +62,7 @@
                     <i class="icon-button fa fa-angle-double-up"></i>
                 </a>
 
-            </div>
+            <!-- </div> -->
         </div>
     </div>
 
@@ -73,13 +73,10 @@
     <script type="text/html" id="pointsTemplate">
         <li class="poi__list-item" data-bind="event: {mouseover: $parent.mouseHere, mouseleave: $parent.mouseGone}, click:$parent.selectPoint, css: $parent.getStyle($data)">
             <div class="row">
-
                 <div class="col-xs-2 col-sm-1">
-
                     <i data-bind="css: iconList" class="text-xs-center"></i>
                 </div>
                 <div class="col-xs-7 col-sm-6">
-
                     <span data-bind="text: name"></span>
                 </div>
                 <div class="hidden-xs-down col-sm-4">
@@ -159,17 +156,6 @@
 
     <!-- ////////////////////////// -->
 
-
-
-
-
-
-
-
-
-
-    </div>
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>-->
     <script src="js/jquery-3.1.0.min.js"></script>
     <script src="js/knockout-3.4.0-min.js"></script>
     <script src="js/bootstrap.min.js"></script>

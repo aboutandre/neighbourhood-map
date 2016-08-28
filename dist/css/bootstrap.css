@@ -1,5 +1,5 @@
 /*!
- * FEND-Neighborhood-Map (Sunday, 28 Aug, 2016 - 16:39:56) */
+ * FEND-Neighborhood-Map (Sunday, 28 Aug, 2016 - 16:44:52) */
 @charset "UTF-8";
 /*!
  * Bootstrap v4.0.0-alpha.3 (http://getbootstrap.com)
@@ -3191,28 +3191,29 @@ li:hover {
 @media only screen and (min-width: 544px) {
   /* line 110, ../../scss/hamburg-map.scss */
   .main-menu {
+    height: 100vh;
     margin-left: 0;
     width: 30vw;
   }
 
-  /* line 114, ../../scss/hamburg-map.scss */
+  /* line 115, ../../scss/hamburg-map.scss */
   .main-menu__body {
     height: 100%;
   }
 
-  /* line 117, ../../scss/hamburg-map.scss */
+  /* line 118, ../../scss/hamburg-map.scss */
   .map__body {
     height: 100vh;
     top: 0;
     width: 70vw;
   }
 
-  /* line 122, ../../scss/hamburg-map.scss */
+  /* line 123, ../../scss/hamburg-map.scss */
   .poi__list {
     margin-bottom: 0;
   }
 }
-/* line 128, ../../scss/hamburg-map.scss */
+/* line 129, ../../scss/hamburg-map.scss */
 .search__input {
   background-color: #fcfcfc;
   border: 1px solid transparent;
@@ -3228,26 +3229,26 @@ li:hover {
   text-overflow: ellipsis;
   width: 100%;
 }
-/* line 142, ../../scss/hamburg-map.scss */
+/* line 143, ../../scss/hamburg-map.scss */
 .search__input:focus {
   border-color: #3fa9fa;
 }
 
-/* line 146, ../../scss/hamburg-map.scss */
+/* line 147, ../../scss/hamburg-map.scss */
 .location__info {
   font-size: 2em;
   font-weight: 100;
   margin: 8px 0;
 }
 
-/* line 151, ../../scss/hamburg-map.scss */
+/* line 152, ../../scss/hamburg-map.scss */
 .location__attribute,
 .location__attribute-value,
 .location__tips--list-item {
   padding: 0 4px;
 }
 
-/* line 156, ../../scss/hamburg-map.scss */
+/* line 157, ../../scss/hamburg-map.scss */
 .location__attribute {
   border-top: 1px solid #dedede;
   color: #3fa9fa;
@@ -3257,7 +3258,7 @@ li:hover {
   width: 100%;
 }
 
-/* line 165, ../../scss/hamburg-map.scss */
+/* line 166, ../../scss/hamburg-map.scss */
 .location__attribute-value,
 .location__tips--list-item {
   color: #515658;
@@ -3267,19 +3268,19 @@ li:hover {
   margin: 8px 0;
 }
 
-/* line 174, ../../scss/hamburg-map.scss */
+/* line 175, ../../scss/hamburg-map.scss */
 .location__tips--list-item {
   font-family: 'PT Serif', serif;
   font-style: italic;
   font-weight: 100;
 }
 
-/* line 180, ../../scss/hamburg-map.scss */
+/* line 181, ../../scss/hamburg-map.scss */
 .location__tips--list {
   padding: 0;
 }
 
-/* line 184, ../../scss/hamburg-map.scss */
+/* line 185, ../../scss/hamburg-map.scss */
 .menu-toggle {
   background: #333333;
   color: #ffffff;
@@ -3291,12 +3292,12 @@ li:hover {
   width: calc(100% + 60px);
 }
 
-/* line 228, ../../scss/hamburg-map.scss */
+/* line 229, ../../scss/hamburg-map.scss */
 .input__label {
   color: #fcfcfc;
 }
 
-/* line 231, ../../scss/hamburg-map.scss */
+/* line 232, ../../scss/hamburg-map.scss */
 input[type=checkbox].with-font {
   border: 0;
   clip: rect(0 0 0 0);
@@ -3307,20 +3308,20 @@ input[type=checkbox].with-font {
   position: absolute;
   width: 1px;
 }
-/* line 241, ../../scss/hamburg-map.scss */
+/* line 242, ../../scss/hamburg-map.scss */
 input[type=checkbox].with-font.rezoom ~ label::before {
   content: '\f00e';
 }
-/* line 246, ../../scss/hamburg-map.scss */
+/* line 247, ../../scss/hamburg-map.scss */
 input[type=checkbox].with-font.map-to-window ~ label::before {
   content: '\f0b2';
 }
-/* line 251, ../../scss/hamburg-map.scss */
+/* line 252, ../../scss/hamburg-map.scss */
 input[type=checkbox].with-font.only-poi ~ label::before {
   content: '\f041';
 }
 
-/* line 256, ../../scss/hamburg-map.scss */
+/* line 257, ../../scss/hamburg-map.scss */
 input[type=checkbox].with-font ~ label::before {
   display: inline-block;
   font-family: FontAwesome;
@@ -3330,27 +3331,27 @@ input[type=checkbox].with-font ~ label::before {
   width: 1.4em;
 }
 
-/* line 266, ../../scss/hamburg-map.scss */
+/* line 267, ../../scss/hamburg-map.scss */
 input[type=checkbox].with-font ~ label::before {
   color: #dedede;
 }
 
-/* line 270, ../../scss/hamburg-map.scss */
+/* line 271, ../../scss/hamburg-map.scss */
 input[type=checkbox].with-font:checked ~ label::before {
   color: #3fa9fa;
 }
 
-/* line 274, ../../scss/hamburg-map.scss */
+/* line 275, ../../scss/hamburg-map.scss */
 .settings-button {
   padding-top: 8px;
   text-align: center;
 }
-/* line 277, ../../scss/hamburg-map.scss */
+/* line 278, ../../scss/hamburg-map.scss */
 .settings-button label {
   display: block;
 }
 
-/* line 282, ../../scss/hamburg-map.scss */
+/* line 283, ../../scss/hamburg-map.scss */
 .gm-style-iw {
   min-width: 80% !important;
   position: relative !important;

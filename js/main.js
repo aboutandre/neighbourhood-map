@@ -326,6 +326,7 @@ var koVM = function() {
     }, me);
 
     me.visiblePOI.subscribe(function() {
+      console.log("List rendered");
         me.toggleMarkers();
         if (me.infowindow.isOpen === true) {
             me.infowindow.close();
