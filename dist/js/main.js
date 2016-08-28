@@ -281,7 +281,7 @@ var koVM = function() {
     var beachIcon = 'beach-icon';
 
     var foodSight = './img/food';
-    var foodIcon = 'food-icon';
+    var foodIcon = 'fa-cutlery';
 
     var sportSight = './img/sport';
     var sportIcon = 'sport-icon';

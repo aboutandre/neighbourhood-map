@@ -1,5 +1,5 @@
 /*!
- * FEND-Neighborhood-Map (Sunday, 28 Aug, 2016 - 19:07:46) */
+ * FEND-Neighborhood-Map (Sunday, 28 Aug, 2016 - 19:40:21) */
 @charset "UTF-8";
 /*!
  * Bootstrap v4.0.0-alpha.3 (http://getbootstrap.com)
@@ -10227,10 +10227,6 @@ a:link {
     color: #777777 !important;
   }
 }
-/*!
- *  Font Awesome 4.3.0 by @davegandy - http://fontawesome.io - @fontawesome
- *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
- */
 /* FONT PATH
  * -------------------------- */
 @font-face {
@@ -10241,7 +10237,7 @@ a:link {
   font-style: normal;
 }
 /* line 4, ../../scss/fonts/_core.scss */
-.fa, .tourist-icon, .cinema-icon, .park-icon, .beach-icon, .food-icon, .sport-icon {
+.fa {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
@@ -10312,7 +10308,7 @@ a:link {
 /* line 4, ../../scss/fonts/_bordered-pulled.scss */
 .fa-border {
   padding: .2em .25em .15em;
-  border: solid 0.08em #eee;
+  border: solid 0.08em #eeeeee;
   border-radius: .1em;
 }
 
@@ -10327,11 +10323,11 @@ a:link {
 }
 
 /* line 14, ../../scss/fonts/_bordered-pulled.scss */
-.fa.pull-left, .pull-left.tourist-icon, .pull-left.cinema-icon, .pull-left.park-icon, .pull-left.beach-icon, .pull-left.food-icon, .pull-left.sport-icon {
+.fa.pull-left {
   margin-right: .3em;
 }
 /* line 15, ../../scss/fonts/_bordered-pulled.scss */
-.fa.pull-right, .pull-right.tourist-icon, .pull-right.cinema-icon, .pull-right.park-icon, .pull-right.beach-icon, .pull-right.food-icon, .pull-right.sport-icon {
+.fa.pull-right {
   margin-left: .3em;
 }
 
@@ -10446,7 +10442,7 @@ a:link {
 
 /* line 20, ../../scss/fonts/_stacked.scss */
 .fa-inverse {
-  color: #fff;
+  color: #ffffff;
 }
 
 /* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
@@ -10492,7 +10488,7 @@ a:link {
 }
 
 /* line 12, ../../scss/fonts/_icons.scss */
-.fa-film:before, .cinema-icon:before {
+.fa-film:before {
   content: "";
 }
 
@@ -11078,7 +11074,7 @@ a:link {
 }
 
 /* line 138, ../../scss/fonts/_icons.scss */
-.fa-camera-retro:before, .tourist-icon:before {
+.fa-camera-retro:before {
   content: "";
 }
 
@@ -11570,7 +11566,7 @@ a:link {
 }
 
 /* line 250, ../../scss/fonts/_icons.scss */
-.fa-cutlery:before, .food-icon:before {
+.fa-cutlery:before {
   content: "";
 }
 
@@ -12255,7 +12251,7 @@ a:link {
 }
 
 /* line 403, ../../scss/fonts/_icons.scss */
-.fa-sun-o:before, .beach-icon:before {
+.fa-sun-o:before {
   content: "";
 }
 
@@ -12517,7 +12513,7 @@ a:link {
 }
 
 /* line 461, ../../scss/fonts/_icons.scss */
-.fa-tree:before, .park-icon:before {
+.fa-tree:before {
   content: "";
 }
 
@@ -12717,7 +12713,7 @@ a:link {
 }
 
 /* line 513, ../../scss/fonts/_icons.scss */
-.fa-soccer-ball-o:before, .sport-icon:before,
+.fa-soccer-ball-o:before,
 .fa-futbol-o:before {
   content: "";
 }
@@ -13363,12 +13359,12 @@ li:hover {
   width: calc(100% + 60px);
 }
 
-/* line 255, ../../scss/hamburg-map.scss */
+/* line 223, ../../scss/hamburg-map.scss */
 .input__label {
   color: #fcfcfc;
 }
 
-/* line 258, ../../scss/hamburg-map.scss */
+/* line 226, ../../scss/hamburg-map.scss */
 input[type=checkbox].with-font {
   border: 0;
   clip: rect(0 0 0 0);
@@ -13379,34 +13375,34 @@ input[type=checkbox].with-font {
   position: absolute;
   width: 1px;
 }
-/* line 268, ../../scss/hamburg-map.scss */
+/* line 236, ../../scss/hamburg-map.scss */
 input[type=checkbox].with-font.rezoom ~ label::before {
   content: '\f00e';
 }
-/* line 273, ../../scss/hamburg-map.scss */
+/* line 241, ../../scss/hamburg-map.scss */
 input[type=checkbox].with-font.map-to-window ~ label::before {
   content: '\f0b2';
 }
-/* line 278, ../../scss/hamburg-map.scss */
+/* line 246, ../../scss/hamburg-map.scss */
 input[type=checkbox].with-font.only-poi ~ label::before {
   content: '\f041';
 }
 
 @media (min-width: 768px) {
-  /* line 287, ../../scss/hamburg-map.scss */
+  /* line 255, ../../scss/hamburg-map.scss */
   input[type=checkbox].with-font.rezoom ~ label::after {
     content: 'Re-zoom on filter';
   }
-  /* line 292, ../../scss/hamburg-map.scss */
+  /* line 260, ../../scss/hamburg-map.scss */
   input[type=checkbox].with-font.map-to-window ~ label::after {
     content: 'Fit map to window';
   }
-  /* line 297, ../../scss/hamburg-map.scss */
+  /* line 265, ../../scss/hamburg-map.scss */
   input[type=checkbox].with-font.only-poi ~ label::after {
     content: 'Only POI name';
   }
 }
-/* line 304, ../../scss/hamburg-map.scss */
+/* line 272, ../../scss/hamburg-map.scss */
 input[type=checkbox].with-font ~ label::before {
   display: inline-block;
   font-family: FontAwesome;
@@ -13416,29 +13412,30 @@ input[type=checkbox].with-font ~ label::before {
   width: 1.4em;
 }
 
-/* line 314, ../../scss/hamburg-map.scss */
+/* line 282, ../../scss/hamburg-map.scss */
 input[type=checkbox].with-font ~ label::before {
   color: #dedede;
 }
 
-/* line 318, ../../scss/hamburg-map.scss */
+/* line 286, ../../scss/hamburg-map.scss */
 input[type=checkbox].with-font:checked ~ label::before {
   color: #3fa9fa;
 }
 
-/* line 322, ../../scss/hamburg-map.scss */
+/* line 290, ../../scss/hamburg-map.scss */
 .settings-button {
   padding-top: 8px;
   text-align: center;
 }
-/* line 325, ../../scss/hamburg-map.scss */
+/* line 293, ../../scss/hamburg-map.scss */
 .settings-button label {
   display: block;
 }
 
-/* line 330, ../../scss/hamburg-map.scss */
+/* line 299, ../../scss/hamburg-map.scss */
 .gm-style-iw {
   max-height: 75vh !important;
+  max-width: 85% !important;
   min-width: 80% !important;
   position: relative !important;
 }

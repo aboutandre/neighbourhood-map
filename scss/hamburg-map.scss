@@ -219,38 +219,6 @@ li:hover {
   width: calc(100% + 60px);
 }
 
-//Categories
-
-.tourist-icon {
-  @extend .fa;
-  @extend .fa-camera-retro;
-}
-
-.cinema-icon {
-  @extend .fa;
-  @extend .fa-film;
-}
-
-.park-icon {
-  @extend .fa;
-  @extend .fa-tree;
-}
-
-.beach-icon {
-  @extend .fa;
-  @extend .fa-sun-o;
-}
-
-.food-icon {
-  @extend .fa;
-  @extend .fa-cutlery;
-}
-
-.sport-icon {
-  @extend .fa;
-  @extend .fa-soccer-ball-o;
-}
-
 //Settings
 .input__label {
   color: $alabaster;
@@ -327,8 +295,10 @@ input[type=checkbox].with-font:checked ~ label::before {
   }
 }
 
+// Controls the Google Maps Info Window
 .gm-style-iw {
   max-height: 75vh !important;
+  max-width: 85% !important;
   min-width: 80% !important;
   position: relative !important;
 }
