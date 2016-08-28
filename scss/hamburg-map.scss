@@ -110,18 +110,44 @@ li:hover {
   .main-menu {
     height: 100vh;
     margin-left: 0;
-    width: 30vw;
+    width: 25vw;
   }
   .main-menu__body {
     height: 100%;
+    padding: 0 $base-grid/2;
+    width: calc(100% + 16px);
+  }
+  #main-menu__items {
+    margin: 0 auto;
+    width: calc(100% - 16px);
   }
   .map__body {
     height: 100vh;
     top: 0;
-    width: 70vw;
+    width: 75vw;
   }
   .poi__list {
     margin-bottom: 0;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .main-menu {
+    height: 100vh;
+    margin-left: 0;
+    width: 35vw;
+  }
+  .map__body {
+    width: 65vw;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .main-menu {
+    width: 20vw;
+  }
+  .map__body {
+    width: 80vw;
   }
 }
 
@@ -254,6 +280,27 @@ input[type=checkbox].with-font {
     }
   }
 }
+
+@media (min-width: 768px) {
+  input[type=checkbox].with-font {
+    &.rezoom {
+      ~ label::after {
+        content: 'Re-zoom on filter';
+      }
+    }
+    &.map-to-window {
+      ~ label::after {
+        content: 'Fit map to window';
+      }
+    }
+    &.only-poi {
+      ~ label::after {
+        content: 'Only POI name';
+      }
+    }
+  }
+}
+
 input[type=checkbox].with-font ~ label::before {
   display: inline-block;
   font-family: FontAwesome;
@@ -281,6 +328,7 @@ input[type=checkbox].with-font:checked ~ label::before {
 }
 
 .gm-style-iw {
+  max-height: 75vh !important;
   min-width: 80% !important;
   position: relative !important;
 }

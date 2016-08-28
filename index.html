@@ -23,17 +23,17 @@
 
                     <div class="col-xs-4 settings-button">
                         <input type="checkbox" id="fitToResult" class="with-font rezoom" data-bind="checked: fitToResult">
-                        <label class="input__label" for="fitToResult"><br> Re-zoom on filter </label>
+                        <label class="input__label" for="fitToResult"><br></label>
                     </div>
 
                     <div class="col-xs-4 settings-button">
                         <input type="checkbox" id="fitWindow" class="with-font map-to-window" data-bind="checked: fitWindow">
-                        <label class="input__label" for="fitWindow"><br> Fit map to window </label>
+                        <label class="input__label" for="fitWindow"><br></label>
                     </div>
 
                     <div class="col-xs-4 settings-button">
                         <input type="checkbox" id="onlyPOIName" class="with-font only-poi" data-bind="checked: onlyPOIName">
-                        <label class="input__label" for="onlyPOIName"><br> Only POI name </label>
+                        <label class="input__label" for="onlyPOIName"><br></label>
                     </div>
                 </div>
                 <!--</div>-->
@@ -53,13 +53,13 @@
                         <ul class="poi__list" data-bind="visible: listVisible, foreach: shownList">
                           <li onclick="collapseTheMenu();" class="poi__list-item" data-bind="event: {mouseover: $parent.mouseHere, mouseleave: $parent.mouseGone}, click:$parent.selectPoint, css: $parent.getStyle($data)">
                               <div class="row">
-                                  <div class="col-xs-2 col-sm-1">
+                                  <div class="col-xs-2 col-sm-1 col-md-1">
                                       <i data-bind="css: iconList" class="text-xs-center"></i>
                                   </div>
-                                  <div class="col-xs-7 col-sm-6">
+                                  <div class="col-xs-7 col-sm-9 col-md-6">
                                       <span data-bind="text: name"></span>
                                   </div>
-                                  <div class="hidden-xs-down col-sm-4">
+                                  <div class="hidden-sm-down col-md-4">
                                       <span data-bind="text: category" class="poi__list-item--category"></span>
                                   </div>
                               </div>
