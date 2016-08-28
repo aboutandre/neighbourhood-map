@@ -89,6 +89,18 @@ var koVM = function() {
     //http://alistapart.com/article/getoutbindingsituations
     var me = this;
 
+
+    me.maxListNum =
+            ko.observable(Math.max(1,Math.ceil(($(window).height() -150)/30)));
+        //is the list visible right now? 1 = on, 0 = false;
+        me.POIListShow = ko.observable(1);
+        /* which point is the first one on our list page right now?
+         * actual page is calculated from this.  Storing point instead
+         * of page so that point can remain consistent when list resizes
+         */
+        me.listPoint = ko.observable(1);
+
+
     // Check for Google Maps. If any error is thrown we get a message in the console
     if (typeof google !== 'object' || typeof google.maps !== 'object') {
         console.log("error loading google maps api");
@@ -135,7 +147,7 @@ var koVM = function() {
 
     //Sets active POI and retrieves info
     me.selectPoint = function(POI) {
-        var oldPoint = me.currentPoint();
+        // var oldPoint = me.currentPoint();
         me.centerToPoint(POI, true);
         me.currentPoint(POI);
         var storedContent = sessionStorage.getItem("infoKey" +
@@ -322,30 +334,208 @@ var koVM = function() {
         }
     });
 
-    me.toggleMarkers = function() {
-        var i;
-        var pointsLen = me.points().length;
-        for (i = 0; i < pointsLen; i++) {
-            var mePOI = me.points()[i];
-            mePOI.marker.setVisible(false);
-            mePOI.hovered(false);
-            if (me.currentPoint() === mePOI) {
-                mePOI.marker.setIcon(mePOI.activeIcon);
-            } else {
-                mePOI.marker.setIcon(mePOI.defaultIcon);
+
+
+
+
+
+
+
+
+
+
+    /* computed for what page of the list is the user on currently? */
+        me.listPage = ko.computed(function(){
+            /* we find the page based on the current point and the max page size */
+            return Math.max(1,Math.ceil( me.listPoint()/me.maxListNum()));
+        });
+
+        /* just the items that should be visible on the list's
+         * current visible page
+         */
+        me.shownList = ko.computed(function(){
+            return me.visiblePOI().slice(me.listPoint()-1,
+                me.listPoint()-1 + me.maxListNum());
+        });
+
+        /* computed for how many pages we have total based on number of items
+         * and the current max size of our list based on window size
+         */
+        me.totalPages = ko.computed(function(){
+            return Math.max(1,Math.ceil(
+                me.visiblePOI().length/me.maxListNum() ));
+        });
+
+        /* computed for displayed text of current page information
+         * returns a string for current page, max page, and total items
+         */
+        me.pageText = ko.computed(function(){
+            return 'Current List Page: <strong>' + me.listPage() +
+                '</strong> of <strong>' + me.totalPages() +
+                '</strong> (' + me.visiblePOI().length + ' locations)';
+        });
+
+        /* computed for the previous page text to show on our list controls
+         * while in here, make sure we don't have points we can't get to
+         * because of page resize and rounding by resetting listPoint to 1
+         * if we are on the first page
+         */
+        me.prevPageText = ko.computed(function(){
+            if (me.listPage() > 1){
+                return 'page: ' + (me.listPage() - 1) + ' <' ;
             }
-        }
-        for (i = 0; i < pointsLen; i++) {
-            var currentPOI = me.visiblePOI()[i];
-            if (currentPOI) {
-                currentPOI.marker.setVisible(true);
+            else {
+                me.listPoint(1);
+                return me.listPage();
             }
-        }
-        if (me.fitToResult() === true) {
-            console.log('Re-zoom on filter on');
-            me.refitMap();
-        }
-    };
+        });
+
+        /* computed for the next page text to show on our list controls */
+        me.nextPageText = ko.computed(function(){
+            if (me.totalPages() > me.listPage()){
+                return '> page: ' + (me.listPage() + 1) ;
+            }
+            else {
+                return me.listPage();
+            }
+        });
+
+
+        /* this changes the page.  Input should be 1 or -1 where 1 is the next
+         * page in the list and -1 is previous page.  It actually sets the
+         * listPoint and not the page, since page is calculated form point.
+         * It uses the current max page size to know which one to select for each
+         * page change.
+         */
+        me.changePage = function(direction){
+            if(direction === 1 && me.totalPages() > me.listPage()){
+                me.listPoint(me.listPoint()+me.maxListNum());
+            }
+            else if(direction === -1 && me.listPage() > 1){
+                me.listPoint(me.listPoint()-me.maxListNum());
+            }
+        };
+
+        /**
+         * shows or hides the list.  Fired by clicks on our rollup icon/div.
+         * this is done by setting listVisible which is used in the knockout
+         * data binds as a boolean for the visible binding
+         */
+        me.toggleList = function(makeVisible){
+            console.log(typeof makeVisible);
+            /* check if we sent a visible argument and if not, make one
+             * for some reason it feeds an object when it is left blank
+             * so we have to check if it is a boolean instead of undefined
+             */
+            if (typeof makeVisible !== 'boolean') {
+                if (me.listVisible() === 0) {
+                    makeVisible = true;
+                }
+                else {
+                    makeVisible = false;
+                }
+            }
+
+            /* change actual list now that we know if we are hiding or showing */
+            if(makeVisible === true){
+                me.listVisible(1);
+                me.rollupText('collapse list');
+                me.rollupIconPath('img/collapseIcon.png');
+            }
+            else if (makeVisible === false){
+                me.listVisible(0);
+                me.rollupText('expand list');
+                me.rollupIconPath('img/expandIcon.png');
+            }
+
+        };
+
+
+
+
+
+
+
+
+
+
+
+
+
+                              // me.toggleMarkers = function() {
+                              //     var i;
+                              //     var pointsLen = me.points().length;
+                              //     for (i = 0; i < pointsLen; i++) {
+                              //         var mePOI = me.points()[i];
+                              //         mePOI.marker.setVisible(false);
+                              //         mePOI.hovered(false);
+                              //         if (me.currentPoint() === mePOI) {
+                              //             mePOI.marker.setIcon(mePOI.activeIcon);
+                              //         } else {
+                              //             mePOI.marker.setIcon(mePOI.defaultIcon);
+                              //         }
+                              //     }
+                              //     for (i = 0; i < pointsLen; i++) {
+                              //         var currentPOI = me.visiblePOI()[i];
+                              //         if (currentPOI) {
+                              //             currentPOI.marker.setVisible(true);
+                              //         }
+                              //     }
+                              //     if (me.fitToResult() === true) {
+                              //         console.log('Re-zoom on filter on');
+                              //         me.refitMap();
+                              //     }
+                              // };
+
+
+
+
+
+
+
+                              me.toggleMarkers = function(){
+                                  /* loop through all markers and make them hidden and unhovered
+                                   * also ensure they have the right unhovered icon.  This is to
+                                   * avoid hiding a hovered icon in it's hovered state
+                                   */
+                                  var i;
+                                  var pointsLen = me.points().length;
+                                  for (i = 0; i < pointsLen; i++) {
+                                      var mePOI = me.points()[i];
+                                      mePOI.marker.setVisible(false);
+                                      mePOI.hovered(false);
+                                      /* set icons */
+                                      if (me.currentPoint() === mePOI) {
+                                          mePOI.marker.setIcon(mePOI.activeIcon);
+                                      }
+                                      else {
+                                          mePOI.marker.setIcon(mePOI.defaultIcon);
+                                      }
+                                  }
+                                  /* now show all markers that we actually want shown. */
+                                  /*TODO: check speed comparing arrays vs hiding all + unhiding */
+                                  for (i = 0; i < pointsLen; i++) {
+                                      /* make sure the point is defined before messing with it */
+                                      var mePOI = me.shownPoints()[i];
+                                      if (mePOI) {mePOI.marker.setVisible(true);}
+                                  }
+                                  /* assuming the user didn't turn it off, refit map to our new set of
+                                   * visible markers
+                                   */
+                                  if(me.refitFilterCheck() === true){me.refitMap();}
+                              };
+
+
+
+
+
+
+
+
+
+
+
+
 
     me.refitMap = function() {
         var bounds = new google.maps.LatLngBounds();

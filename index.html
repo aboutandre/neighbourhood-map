@@ -49,30 +49,8 @@
                 <!--<div class="container">-->
                 <div class="row">
                     <div class="col-xs-12">
-                        <ul class="poi__list" data-bind="visible: POIListShow, foreach: points">
-                            <li class="poi__list-item" data-bind="event: {mouseover: $parent.mouseEnter, mouseleave: $parent.mouseBlur}, click:$parent.selectPoint, css: $parent.getStyle($data)">
-                                <!-- <span data-bind="text: name"></span> -->
-                                <!-- <span data-bind="text: category"></span> -->
-                                <!-- <i data-bind="css: iconList"></i> -->
+                        <ul class="poi__list" data-bind="visible: POIListShow, template: {name: 'POIsTemplate',foreach: points}"> </ul>
 
-                                <div class="row">
-
-                                    <div class="col-xs-2 col-sm-1">
-                                        <i data-bind="css: iconList" class="text-xs-center"></i>
-                                    </div>
-                                    <div class="col-xs-7 col-sm-6">
-                                        <span data-bind="text: name"></span>
-                                    </div>
-                                    <div class="hidden-xs-down col-sm-4">
-
-                                        <span class="poi__list-item--category" data-bind="text: category"></span>
-
-                                    </div>
-                                </div>
-
-                            </li>
-
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -85,6 +63,49 @@
 
             </div>
         </div>
+
+        <script type="text/html" id="POIsTemplate">
+            <li class="poi__list-item" data-bind="event: {mouseover: $parent.mouseEnter, mouseleave: $parent.mouseBlur}, click:$parent.selectPoint, css: $parent.getStyle($data)">
+
+                <div class="row">
+
+                    <div class="col-xs-2 col-sm-1">
+                        <i data-bind="css: iconList" class="text-xs-center"></i>
+                    </div>
+                    <div class="col-xs-7 col-sm-6">
+                        <span data-bind="text: name"></span>
+                    </div>
+                    <div class="hidden-xs-down col-sm-4">
+
+                        <span data-bind="text: category" class="poi__list-item--category"></span>
+
+                    </div>
+                </div>
+
+            </li>
+
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

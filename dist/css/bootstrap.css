@@ -1,19 +1,7 @@
 /*!
- * FEND-Neighborhood-Map (Sunday, 28 Aug, 2016 - 13:02:00) */
+ * FEND-Neighborhood-Map (Sunday, 28 Aug, 2016 - 15:01:13) */
 /*!
- * FEND-Neighborhood-Map (Sunday, 28 Aug, 2016 - 12:59:11) */
-/*!
- * FEND-Neighborhood-Map (Sunday, 28 Aug, 2016 - 12:38:00) */
-/*!
- * FEND-Neighborhood-Map (Sunday, 28 Aug, 2016 - 12:35:00) */
-/*!
- * FEND-Neighborhood-Map (Sunday, 28 Aug, 2016 - 12:34:48) */
-/*!
- * FEND-Neighborhood-Map (Sunday, 28 Aug, 2016 - 11:50:26) */
-/*!
- * FEND-Neighborhood-Map (Sunday, 28 Aug, 2016 - 11:44:13) */
-/*!
- * FEND-Neighborhood-Map (Sunday, 28 Aug, 2016 - 11:41:39) */
+ * FEND-Neighborhood-Map (Sunday, 28 Aug, 2016 - 13:36:26) */
 @charset "UTF-8";
 /*!
  * Bootstrap v4.0.0-alpha.3 (http://getbootstrap.com)
@@ -3148,7 +3136,7 @@ li:hover {
 .hoveredListPoint {
   color: #3fa9fa;
   cursor: pointer;
-  font-size: 1.2em;
+  font-weight: lighter;
 }
 
 /* line 62, ../../scss/hamburg-map.scss */
@@ -3159,7 +3147,7 @@ li:hover {
 /* line 66, ../../scss/hamburg-map.scss */
 .hoveredCurrentListPoint {
   color: #3fa9fa;
-  font-size: 1.2em;
+  font-weight: lighter;
 }
 
 /* line 71, ../../scss/hamburg-map.scss */

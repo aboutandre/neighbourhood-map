@@ -56,7 +56,7 @@ li:hover {
 .hoveredListPoint {
   color: $brand-primary;
   cursor: pointer;
-  font-size: 1.2em;
+  font-weight: lighter;
 }
 
 .currentListPoint {
@@ -65,7 +65,7 @@ li:hover {
 
 .hoveredCurrentListPoint {
   color: $brand-primary;
-  font-size: 1.2em;
+  font-weight: lighter;
 }
 
 .info-window {
