@@ -60,11 +60,11 @@ li:hover {
 }
 
 .currentListPoint {
-  color: #008000;
+  color: $brand-primary;
 }
 
 .hoveredCurrentListPoint {
-  color: #008000;
+  color: $brand-primary;
   font-size: 1.2em;
 }
 

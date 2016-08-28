@@ -55,7 +55,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <ul class="poi__list" data-bind="visible: POIListShow, foreach: points">
-                            <li class="poi__list-item" data-bind="event: {mouseover: $parent.mouseEnter, mouseleave: $parent.mouseBlur}, click:$parent.selectPoint">
+                            <li class="poi__list-item" data-bind="event: {mouseover: $parent.mouseEnter, mouseleave: $parent.mouseBlur}, click:$parent.selectPoint, css: $parent.getStyle($data)">
                                 <!--<span data-bind="text: name"></span>-->
                                 <!--<span data-bind="text: category"></span>-->
                                 <!--<i data-bind="css: iconList"></i>-->

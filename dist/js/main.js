@@ -171,6 +171,24 @@ var koVM = function() {
     };
 
     //Since it's not possible to sync the change of the icons on the map via CSS a little bit of JS is necessary here
+
+    me.getStyle = function(mePOI){
+        if (mePOI === me.currentPoint()){
+            if(mePOI.hovered() === true) {
+                //hovering over selected point
+                return 'hoveredCurrentListPoint';
+            }
+            else {
+                //point is selected but not hovered over
+                return 'currentListPoint';
+            }
+        }
+        else if (mePOI.hovered() === true){
+            //hovering over non selected point
+            return 'hoveredListPoint';
+        }
+    };
+
     me.mouseEnter = function(POI) {
         if (POI.hovered() !== true) {
             POI.hovered(true);
