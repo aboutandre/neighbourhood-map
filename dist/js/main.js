@@ -558,6 +558,6 @@ var koVM = function() {
 
 
 //Starts the View Model
-$(function() {
+var startVM = function() {
     ko.applyBindings(new koVM());
-});
+};
