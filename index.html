@@ -16,27 +16,7 @@
 </head>
 
 <body>
-    <!-- Here is the modal used in case of a loading error -->
-    <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Error loading external resource</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="alert alert-danger alert-dismissible fade in" role="dialog" aria-labelledby="myModalLabel">
-                        <h4>Oh snap! You got an error!</h4>
-                        <p>While trying to load an external API we ran into an error. </p>
-                        <p>We will send our monkeys right away to solve the problem as soon as we find more bananas! </p>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <div id="map" class="map__body"></div>
     <div class="main-menu">
@@ -100,7 +80,27 @@
         </div>
     </div>
 
-
+    <!-- Here is the modal used in case of a loading error -->
+    <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Error loading external resource</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-danger alert-dismissible fade in" role="dialog" aria-labelledby="myModalLabel">
+                        <h4>Oh snap! You got an error!</h4>
+                        <p>While trying to load an external API we ran into an error. </p>
+                        <p>We will send our monkeys right away to solve the problem as soon as we find more bananas! </p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="js/jquery-3.1.0.min.js"></script>
     <script src="js/knockout-3.4.0-min.js"></script>
