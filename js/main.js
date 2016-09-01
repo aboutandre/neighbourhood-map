@@ -103,12 +103,11 @@ var koVM = function() {
 
     // Check for Google Maps. If any error is thrown we get a message in the console
     if (typeof google !== 'object' || typeof google.maps !== 'object') {
-        console.log("error loading google maps api");
-        $('#search-field').val("Error Loading Google Maps Api");
-        $('#search-field').css({
-            'background-color': 'rgba(255,0,0,0.5)'
-        });
-        //return early since we have no maps.  No POI in doing much else.
+        console.log("Error loading Google Maps API");
+        // $('#searchbox').val("Ops... There was and error Loading Google Maps API");
+        // $('#searchbox').css({'background-color': 'rgba(255,0,0,0.5)'});
+        $('#errorModal').modal('show');
+        //return early since we have no maps.
         return;
     }
 
@@ -123,7 +122,7 @@ var koVM = function() {
     me.rollupText = ko.observable('collapse list');
     me.rollupIconPath = ko.observable('img/collapseIcon.png');
     // Sets how wide the POI info window can be
-    me.infoMaxWidth = Math.min(1200, $(window).width() * 0.8);
+    me.infoMaxWidth = Math.min(1200, $(window).width() * 1.2);
     // Sets the maximum number of Foursquare tips
     me.max4Stips = Math.max(1,
         Math.min(4, Math.floor($(window).height() / 200)));
@@ -335,16 +334,6 @@ var koVM = function() {
         }
     });
 
-
-
-
-
-
-
-
-
-
-
     /* computed for what page of the list is the user on currently? */
         me.listPage = ko.computed(function(){
             /* we find the page based on the current point and the max page size */
@@ -451,49 +440,6 @@ var koVM = function() {
 
         };
 
-
-
-
-
-
-
-
-
-
-
-
-
-                              // me.toggleMarkers = function() {
-                              //     var i;
-                              //     var pointsLen = me.points().length;
-                              //     for (i = 0; i < pointsLen; i++) {
-                              //         var mePOI = me.points()[i];
-                              //         mePOI.marker.setVisible(false);
-                              //         mePOI.hovered(false);
-                              //         if (me.currentPoint() === mePOI) {
-                              //             mePOI.marker.setIcon(mePOI.activeIcon);
-                              //         } else {
-                              //             mePOI.marker.setIcon(mePOI.defaultIcon);
-                              //         }
-                              //     }
-                              //     for (i = 0; i < pointsLen; i++) {
-                              //         var currentPOI = me.visiblePOI()[i];
-                              //         if (currentPOI) {
-                              //             currentPOI.marker.setVisible(true);
-                              //         }
-                              //     }
-                              //     if (me.fitToResult() === true) {
-                              //         console.log('Re-zoom on filter on');
-                              //         me.refitMap();
-                              //     }
-                              // };
-
-
-
-
-
-
-
                               me.toggleMarkers = function(){
                                   /* loop through all markers and make them hidden and unhovered
                                    * also ensure they have the right unhovered icon.  This is to
@@ -525,17 +471,6 @@ var koVM = function() {
                                    */
                                   if(me.fitToResult() === true){me.refitMap();}
                               };
-
-
-
-
-
-
-
-
-
-
-
 
 
     me.refitMap = function() {
@@ -675,7 +610,8 @@ var koVM = function() {
 
     me.infowindow = new google.maps.InfoWindow({
         content: '<div id="POI-info">Loading...</div>',
-        maxWidth: me.infoMaxWidth
+        maxWidth: me.infoMaxWidth,
+        minWidth: 600
     });
 
     me.pano = null;

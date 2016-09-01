@@ -25,7 +25,8 @@ This project was done while attending the Front End Developer course at [Udacity
 There is currently only one break point set at screens smaller than 544px wide.
 
 ### TODOs (Ideas)
-> - More options to filter and controll the map
+> - More options to filter and control the map
+> - Create a Github hosted version of the project
 > - Change the width of the info window
 > - Add a JSON file to fetch TOP 50 places in Hamburg
 > - Mix APIs (Foursquare, Yelp and TripAdvisor for example)

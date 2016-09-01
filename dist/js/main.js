@@ -269,22 +269,22 @@ var koVM = function() {
 
     // Icons for the categories
     var touristSight = './img/tourist';
-    var touristIcon = 'tourist-icon';
+    var touristIcon = 'fa-camera-retro';
 
     var cinemaSight = './img/cinema';
-    var cinemaIcon = 'cinema-icon';
+    var cinemaIcon = 'fa-film';
 
     var parkSight = './img/park';
-    var parkIcon = 'park-icon';
+    var parkIcon = 'fa-tree';
 
     var beachSight = './img/beach';
-    var beachIcon = 'beach-icon';
+    var beachIcon = 'fa-sun-o';
 
     var foodSight = './img/food';
     var foodIcon = 'fa-cutlery';
 
     var sportSight = './img/sport';
-    var sportIcon = 'sport-icon';
+    var sportIcon = 'fa-soccer-ball-o';
 
     //Udacity Criteria: There are at least 5 locations hard-coded in the model
     //Although this list could be a separated JSON file
